@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router'
 import HomePage from './pages/HomePage.tsx'
-import NotFoundPage from './pages/NotFoundPage.tsx'
 import RoomPage from './pages/RoomPage.tsx'
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/rooms/:slug" element={<RoomPage />} />
-      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }

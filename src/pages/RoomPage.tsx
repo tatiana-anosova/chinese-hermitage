@@ -2,14 +2,14 @@ import { Link, useParams } from 'react-router'
 import Disclaimer from '../components/Disclaimer.tsx'
 import ExhibitCard from '../components/ExhibitCard.tsx'
 import { getExhibitsByRoom, getRoomBySlug } from '../data/index.ts'
-import NotFoundPage from './NotFoundPage.tsx'
+import RoomNotFoundPage from './RoomNotFoundPage.tsx'
 
 function RoomPage() {
   const { slug = '' } = useParams()
   const room = getRoomBySlug(slug)
 
   if (!room) {
-    return <NotFoundPage title="Зал не найден" titleZh="未找到展厅" />
+    return <RoomNotFoundPage />
   }
 
   const roomExhibits = getExhibitsByRoom(room.id)
