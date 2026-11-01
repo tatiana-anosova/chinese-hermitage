@@ -1,12 +1,21 @@
-import { Route, Routes } from 'react-router'
+import { useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router'
 import HomePage from './pages/HomePage.tsx'
-import DemoRoomPage from './pages/DemoRoomPage.tsx'
+import NotFoundPage from './pages/NotFoundPage.tsx'
+import RoomPage from './pages/RoomPage.tsx'
 
 function App() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/rooms/demo" element={<DemoRoomPage />} />
+      <Route path="/rooms/:slug" element={<RoomPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }

@@ -36,6 +36,21 @@ Hermitage website.
 - **No external fonts or CDN assets.** Use system fonts and bundle every asset
   locally.
 
+## Content data
+
+- Rooms live in `src/data/rooms.json` and exhibits in `src/data/exhibits.json`.
+  The types are in `src/types.ts` (`Room`, `Exhibit`, `LocalizedText`), and
+  `src/data/index.ts` holds the lookup helpers.
+- Every visitor-facing text is a `{ "ru": "...", "zh": "..." }` object.
+- `exhibit.roomId` references `room.id`. Routes use `slug`: `/rooms/:slug`.
+- Rooms are thematic virtual rooms, not the Hermitage's physical rooms.
+- Current exhibits are clearly labelled placeholders without images, audio
+  or `sourceUrl`. Do not replace them with invented data or unverified images.
+- Images and audio go in `public/` and are referenced by absolute paths, for
+  example `/images/exhibits/<slug>.jpg`, `/audio/ru/<slug>.mp3` and
+  `/audio/zh/<slug>.mp3`.
+- Mark Chinese text with `lang="zh-Hans"`.
+
 ## Out of scope
 
 Do not add Next.js, a backend, a database, an API, authentication, a CMS,

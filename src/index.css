@@ -10,6 +10,8 @@
   --color-background: #faf8f5;
   --color-accent: #9b2c2c;
   --color-border: #ddd5cc;
+  --color-surface: #fff;
+  --color-placeholder: #efe9e1;
 
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC',
     'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
@@ -22,8 +24,13 @@ body {
   margin: 0;
 }
 
+h1,
+h2 {
+  margin: 0;
+}
+
 h1 {
-  margin: 0 0 0.5rem;
+  margin-bottom: 0.5rem;
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   line-height: 1.2;
 }
@@ -38,7 +45,7 @@ a:focus-visible {
 }
 
 .page {
-  max-width: 48rem;
+  max-width: 64rem;
   margin: 0 auto;
   padding: 3rem 1.25rem;
 }
@@ -47,6 +54,102 @@ a:focus-visible {
   margin: 0 0 2rem;
   font-size: 1.25rem;
   color: var(--color-muted);
+}
+
+.subtitle--zh {
+  margin-bottom: 1.5rem;
+}
+
+.intro {
+  max-width: 44rem;
+  margin: 0 0 1rem;
+}
+
+.intro--zh {
+  margin-bottom: 2rem;
+  color: var(--color-muted);
+}
+
+.back-link {
+  margin: 0 0 1.5rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background-color: var(--color-surface);
+  color: inherit;
+}
+
+.card--link {
+  text-decoration: none;
+  transition:
+    box-shadow 0.15s,
+    transform 0.15s;
+}
+
+.card--link:hover,
+.card--link:focus-visible {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.1);
+  transform: translateY(-2px);
+}
+
+.card--link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.card-image--placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 1rem;
+  background-color: var(--color-placeholder);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.125rem;
+  line-height: 1.3;
+}
+
+.card--link .card-title {
+  color: var(--color-accent);
+}
+
+.card-title-zh {
+  margin: 0.25rem 0 0;
+  color: var(--color-muted);
+}
+
+.card-text {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
 }
 
 .disclaimer {

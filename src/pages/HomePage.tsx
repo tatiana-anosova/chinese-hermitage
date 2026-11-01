@@ -1,4 +1,6 @@
-import { Link } from 'react-router'
+import Disclaimer from '../components/Disclaimer.tsx'
+import RoomCard from '../components/RoomCard.tsx'
+import { rooms } from '../data/index.ts'
 
 function HomePage() {
   return (
@@ -7,13 +9,18 @@ function HomePage() {
       <p className="subtitle">
         Виртуальная выставка с аудиогидом на русском и китайском языках
       </p>
-      <p>
-        <Link to="/rooms/demo">Перейти в демонстрационный зал →</Link>
+      <p className="intro">
+        Добро пожаловать на виртуальную выставку китайского искусства из
+        коллекции Государственного Эрмитажа. Экспонаты собраны в тематические
+        залы. У каждого экспоната будут описание и аудиогид на русском и
+        китайском языках. Выберите зал, чтобы начать осмотр.
       </p>
-      <p className="disclaimer">
-        Это независимый учебный школьный проект. Он не является официальным
-        сайтом Государственного Эрмитажа и не связан с музеем.
-      </p>
+      <div className="card-grid">
+        {rooms.map((room) => (
+          <RoomCard key={room.id} room={room} />
+        ))}
+      </div>
+      <Disclaimer />
     </main>
   )
 }
