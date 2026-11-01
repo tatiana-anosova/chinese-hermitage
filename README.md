@@ -32,7 +32,9 @@ Open the URL printed in the terminal (usually http://localhost:5173).
 Pages:
 
 - `/` — homepage with the list of rooms
-- `/rooms/:slug` — a room and its exhibits, for example `/rooms/porcelain`
+- `/rooms/:slug` — a room and its exhibits, for example `/rooms/porcelain`.
+  Clicking an exhibit opens a window with its description in Russian or
+  Chinese and the audio guide.
 
 To check the code:
 
@@ -57,10 +59,10 @@ Every text has a Russian (`ru`) and a Chinese (`zh`) version. Example exhibit:
   "roomId": "porcelain",
   "title": { "ru": "Название", "zh": "名称" },
   "description": { "ru": "Описание", "zh": "介绍" },
-  "image": "/images/exhibits/porcelain-vase.jpg",
+  "image": "images/porcelain-vase.jpg",
   "audio": {
-    "ru": "/audio/ru/porcelain-vase.mp3",
-    "zh": "/audio/zh/porcelain-vase.mp3"
+    "ru": "audio/porcelain-vase-ru.mp3",
+    "zh": "audio/porcelain-vase-zh.mp3"
   },
   "sourceUrl": "https://link-to-the-museum-record"
 }
@@ -69,10 +71,14 @@ Every text has a Russian (`ru`) and a Chinese (`zh`) version. Example exhibit:
 - `id` and `slug` must be unique. Use lowercase Latin letters, digits and
   hyphens. The room `slug` is used in the page address: `/rooms/<slug>`.
 - `image`, `sourceUrl` and the `audio` files are optional. Without an image, a
-  placeholder is shown.
-- Put images and audio files into the `public/` folder and write the path
-  without `public`. For example, `public/images/exhibits/porcelain-vase.jpg`
-  becomes `/images/exhibits/porcelain-vase.jpg`.
+  placeholder is shown. Without an audio file, the exhibit window says that the
+  audio guide is not available yet.
+- Put images into `public/images/` and MP3 audio guides into `public/audio/`.
+  Write the path without `public/`: the file
+  `public/audio/porcelain-vase-ru.mp3` becomes `audio/porcelain-vase-ru.mp3`.
+- `audio.ru` is played when the visitor chooses «Русский», and `audio.zh` when
+  they choose «中文».
+- `sourceUrl` is a link to the exhibit's page on the official Hermitage website.
 - The current exhibits are placeholders. Replace them with real exhibits and
   take every fact from the official museum record.
 
