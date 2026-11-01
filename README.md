@@ -31,7 +31,8 @@ Open the URL printed in the terminal (usually http://localhost:5173).
 
 Pages:
 
-- `/` — homepage with the list of rooms
+- `/` — homepage with the list of rooms and a search box. Typing part of an
+  exhibit's Russian or Chinese title shows the matching exhibits from all rooms.
 - `/rooms/:slug` — a room and its exhibits, for example `/rooms/porcelain`.
   Clicking an exhibit opens a window with its description in Russian or
   Chinese and the audio guide.

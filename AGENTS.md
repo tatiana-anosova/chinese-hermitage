@@ -55,6 +55,10 @@ Hermitage website.
   (no separate exhibit pages). It has a Русский / 中文 switch for the
   description and `AudioGuide`, a native `<audio controls>` player that never
   autoplays and shows a translated message when a file is missing.
+- The homepage search (`SearchBox` + `searchExhibits()` in
+  `src/data/index.ts`) matches the Russian and Chinese exhibit titles
+  case-insensitively and partially, across all rooms. Results reuse
+  `ExhibitCard` and open the same `ExhibitDetails` modal.
 - Mark Chinese text with `lang="zh-Hans"`.
 
 ## Out of scope
