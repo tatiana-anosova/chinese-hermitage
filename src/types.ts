@@ -1,3 +1,5 @@
+export type Language = 'ru' | 'zh'
+
 export interface LocalizedText {
   ru: string
   zh: string

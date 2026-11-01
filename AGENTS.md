@@ -46,9 +46,15 @@ Hermitage website.
 - Rooms are thematic virtual rooms, not the Hermitage's physical rooms.
 - Current exhibits are clearly labelled placeholders without images, audio
   or `sourceUrl`. Do not replace them with invented data or unverified images.
-- Images and audio go in `public/` and are referenced by absolute paths, for
-  example `/images/exhibits/<slug>.jpg`, `/audio/ru/<slug>.mp3` and
-  `/audio/zh/<slug>.mp3`.
+- Images go in `public/images/` and audio guides in `public/audio/`. The JSON
+  paths omit `public/`, for example `images/<slug>.jpg` and
+  `audio/<slug>-ru.mp3`. Always pass them through `assetUrl()`
+  (`src/utils/assetUrl.ts`) so they work on nested routes such as
+  `/rooms/:slug`.
+- Clicking an exhibit card opens `ExhibitDetails`, a native `<dialog>` modal
+  (no separate exhibit pages). It has a Русский / 中文 switch for the
+  description and `AudioGuide`, a native `<audio controls>` player that never
+  autoplays and shows a translated message when a file is missing.
 - Mark Chinese text with `lang="zh-Hans"`.
 
 ## Out of scope
