@@ -35,13 +35,21 @@ function ExhibitDetails({ exhibit, onClose }: ExhibitDetailsProps) {
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
+    // React's StrictMode (npm run dev) runs this effect twice, and the "close"
+    // event from the first cleanup arrives after the dialog is open again.
+    const handleClose = () => {
+      if (!dialog.open) {
+        onClose()
+      }
+    }
+
     // showModal() makes the rest of the page inert and closes on Escape.
     dialog.showModal()
     closeButtonRef.current?.focus()
-    dialog.addEventListener('close', onClose)
+    dialog.addEventListener('close', handleClose)
 
     return () => {
-      dialog.removeEventListener('close', onClose)
+      dialog.removeEventListener('close', handleClose)
       if (dialog.open) {
         dialog.close()
       }
